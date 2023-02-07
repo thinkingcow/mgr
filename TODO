@@ -1,0 +1,20 @@
+TODO
+- MGR is written in K&R C for SunOS3. It mostly compiles with gcc, but not quite.  Minimally update the code so it compiles.
+
+- Mgr was written for a monochrome Sun "Bwtwo" display.  I need to adapt the BitBlit code to run using a modern Linux display
+  interface.  I think I'll stick to "monochrome mode" [later versions of MGR supported 8-bit Color per pixel]
+  
+- The mouse and keyboard interface code needs to be adapted for modern interfaces
+
+- The process control and terminal setting was different under SunOS than modern Linux, the system calls need to be converted.
+
+NOTES
+- There are various ways of adapting to a modern Linux display: /dev/fb, directFB, Raylib, DRM, SDL, etc.  In the spirit of being
+  "close to the hardware", we can use "libdrm" with a "dumb framebuffer", and convert the 1-bit-per-pixel MGR bitblit code to 
+  whatever I can get working via libdrm on the Raspberry PI.  Although the doesn't use any hardware accelleration, it should be
+  fast enough (I hope)
+  
+- /dev/input/mice will work swell for mouse input
+- "stdin" in "raw" mode will work for the keyboard, at least initially
+- Although there have been various ports of MGR to Linux in the past, The changes to the system calls are minimal, so I'll just
+  redo them
