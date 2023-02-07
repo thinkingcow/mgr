@@ -1,0 +1,12 @@
+Tasks: +=conpleted, -=in dev, x=not started
++ upload original sources to github
++ test display interface
++ test mouse interface
+- set gcc flags to best work for K&R C
+- fix missing static declarations
+- convert terminal mode settings from BSD style to Linux style
+- update process control (e.g. waitpid) to linux style
+- build version of bitblit code that integrates with drm library
+x fix client library
+x lots of anticipated debugging
+x build a deb package
